@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.socioprophet.org/contractforge/contract-domain/contract-interpretation-evidence.schema.json",
+  "title": "Contract Interpretation Evidence",
+  "type": "object",
+  "required": ["evidence_id", "artifact_ref", "claim_type"],
+  "properties": {
+    "evidence_id": { "type": "string" },
+    "artifact_ref": { "type": "string" },
+    "claim_type": { "type": "string" },
+    "supporting_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["start", "end"],
+        "properties": {
+          "start": { "type": "integer", "minimum": 0 },
+          "end": { "type": "integer", "minimum": 0 },
+          "label": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "contradicting_spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["start", "end"],
+        "properties": {
+          "start": { "type": "integer", "minimum": 0 },
+          "end": { "type": "integer", "minimum": 0 },
+          "label": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "rule_trace": { "type": "array", "items": { "type": "string" } },
+    "model_trace": { "type": "string" },
+    "review_state": { "type": "string" },
+    "ambiguity_flags": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

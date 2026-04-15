@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.socioprophet.org/contractforge/contract-domain/contract-pattern-pack.schema.json",
+  "title": "Contract Pattern Pack",
+  "type": "object",
+  "required": ["pack_id", "version", "language", "domain"],
+  "properties": {
+    "pack_id": { "type": "string" },
+    "version": { "type": "string" },
+    "language": { "type": "string" },
+    "jurisdiction": { "type": "string" },
+    "domain": { "type": "string" },
+    "subdomain": { "type": "string" },
+    "lexicons": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule_id", "kind", "pattern"],
+        "properties": {
+          "rule_id": { "type": "string" },
+          "kind": { "type": "string" },
+          "pattern": { "type": "string" },
+          "priority": { "type": "integer" },
+          "description": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "normalizers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "precedence": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "compatibility_range": { "type": "string" }
+  },
+  "additionalProperties": false
+}

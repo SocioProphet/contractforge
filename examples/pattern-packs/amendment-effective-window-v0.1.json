@@ -1,0 +1,81 @@
+{
+  "pack_id": "amendment_effective_window_core",
+  "version": "0.1.0",
+  "language": "en",
+  "jurisdiction": "generic_common_law",
+  "domain": "contracts",
+  "subdomain": "amendment_effective_window",
+  "lexicons": {
+    "amendment_markers": [
+      "amendment",
+      "modified",
+      "amended",
+      "restated",
+      "superseded"
+    ],
+    "effective_markers": [
+      "effective as of",
+      "effective on",
+      "commencing on",
+      "retroactive to"
+    ],
+    "notice_markers": [
+      "written notice",
+      "days' notice",
+      "prior notice"
+    ],
+    "renewal_markers": [
+      "automatically renew",
+      "renewal term",
+      "unless either party gives notice"
+    ]
+  },
+  "rules": [
+    {
+      "rule_id": "amendment_clause_detect",
+      "kind": "clause_type",
+      "pattern": "(?i)\\b(amendment|amended|restated|superseded)\\b",
+      "priority": 100,
+      "description": "Detect amendment-oriented clauses."
+    },
+    {
+      "rule_id": "effective_window_detect",
+      "kind": "term_window",
+      "pattern": "(?i)\\b(effective as of|effective on|commencing on|retroactive to)\\b",
+      "priority": 95,
+      "description": "Detect effective-window clauses."
+    },
+    {
+      "rule_id": "notice_period_detect",
+      "kind": "term_window",
+      "pattern": "(?i)\\b(30 days' notice|60 days' notice|written notice)\\b",
+      "priority": 90,
+      "description": "Detect notice-period clauses."
+    },
+    {
+      "rule_id": "renewal_rule_detect",
+      "kind": "term_window",
+      "pattern": "(?i)\\b(automatically renew|renewal term|unless either party gives notice)\\b",
+      "priority": 85,
+      "description": "Detect renewal-rule clauses."
+    },
+    {
+      "rule_id": "supersession_effect_detect",
+      "kind": "exception",
+      "pattern": "(?i)\\b(supersedes all prior agreements|except as expressly modified)\\b",
+      "priority": 80,
+      "description": "Detect supersession and carve-out language."
+    }
+  ],
+  "normalizers": [
+    "normalize_effective_date_phrases",
+    "normalize_notice_period_phrases",
+    "normalize_renewal_language"
+  ],
+  "precedence": [
+    "exception",
+    "term_window",
+    "clause_type"
+  ],
+  "compatibility_range": ">=0.1.0 <0.2.0"
+}

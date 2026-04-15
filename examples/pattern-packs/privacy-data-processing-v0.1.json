@@ -1,0 +1,96 @@
+{
+  "pack_id": "privacy_data_processing_core",
+  "version": "0.1.0",
+  "language": "en",
+  "jurisdiction": "EU",
+  "domain": "privacy",
+  "subdomain": "data_processing",
+  "lexicons": {
+    "actors": [
+      "controller",
+      "processor",
+      "data subject",
+      "recipient",
+      "supervisory authority"
+    ],
+    "actions": [
+      "notify",
+      "disclose",
+      "delete",
+      "retain",
+      "process",
+      "restrict",
+      "transfer",
+      "provide"
+    ],
+    "modal_obligation": [
+      "must",
+      "shall",
+      "is required to"
+    ],
+    "modal_prohibition": [
+      "must not",
+      "shall not",
+      "may not"
+    ],
+    "exception_markers": [
+      "unless",
+      "except where",
+      "provided that"
+    ],
+    "temporal_markers": [
+      "without undue delay",
+      "within 72 hours",
+      "for no longer than necessary"
+    ]
+  },
+  "rules": [
+    {
+      "rule_id": "privacy_obligation_notify_supervisory_authority",
+      "kind": "obligation",
+      "pattern": "(?i)\\b(controller|processor)\\b.*\\b(must|shall|is required to)\\b.*\\bnotify\\b.*\\b(supervisory authority)\\b",
+      "priority": 100,
+      "description": "Capture notification obligations to supervisory authorities."
+    },
+    {
+      "rule_id": "privacy_obligation_notify_data_subject",
+      "kind": "obligation",
+      "pattern": "(?i)\\b(controller|processor)\\b.*\\b(must|shall|is required to)\\b.*\\bnotify\\b.*\\b(data subject)\\b",
+      "priority": 95,
+      "description": "Capture notification obligations to data subjects."
+    },
+    {
+      "rule_id": "privacy_prohibition_unlawful_processing",
+      "kind": "prohibition",
+      "pattern": "(?i)\\b(controller|processor)\\b.*\\b(must not|shall not|may not)\\b.*\\bprocess\\b",
+      "priority": 90,
+      "description": "Capture prohibitions on processing."
+    },
+    {
+      "rule_id": "privacy_exception_unless_risk_unlikely",
+      "kind": "exception",
+      "pattern": "(?i)\\bunless\\b.*\\bunlikely to result in a risk\\b",
+      "priority": 80,
+      "description": "Capture risk-based exception clauses."
+    },
+    {
+      "rule_id": "privacy_temporal_without_undue_delay",
+      "kind": "term_window",
+      "pattern": "(?i)\\bwithout undue delay\\b|\\bwithin 72 hours\\b",
+      "priority": 70,
+      "description": "Capture common privacy-related timing windows."
+    }
+  ],
+  "normalizers": [
+    "lowercase_actor_terms",
+    "collapse_modal_variants",
+    "normalize_temporal_phrases"
+  ],
+  "precedence": [
+    "exception",
+    "prohibition",
+    "obligation",
+    "term_window"
+  ],
+  "compatibility_range": ">=0.1.0 <0.2.0"
+}

@@ -1,0 +1,7 @@
+version: 0.5.12
+upstreamStandards:
+  platform: prophet-platform-standards
+  storage: socioprophet-standards-storage
+releaseType: conformance
+notes:
+  - minimal executable conformance subtree for storage-fabric history and ranking

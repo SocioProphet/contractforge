@@ -1,0 +1,25 @@
+{
+  "apiVersion": "contractforge.socioprophet.dev/v1",
+  "kind": "ContractReferencedAssetFixture",
+  "metadata": {
+    "name": "lattice-runtime-contract-reference",
+    "version": "0.1.0"
+  },
+  "asset": {
+    "sourceRecordKind": "PlatformAssetRecord",
+    "assetId": "runtime-asset:prophet-python-ml:0.1.0",
+    "assetKind": "runtime-asset",
+    "producerRepo": "SocioProphet/lattice-forge",
+    "contractSubjectClass": "RuntimeContractReferencedAsset",
+    "lifecycleStatus": "candidate",
+    "promotionChannel": "dev",
+    "permittedUseSurfaces": ["jupyter", "ray", "beam", "agentplane", "sourceos-user", "prophet-platform"],
+    "evidenceRef": null
+  },
+  "contractQuestions": [
+    "Which project, group, org, device, fleet, or workspace may use this runtime?",
+    "Which effective-state rule applies to runtime promotion or rollback?",
+    "Which amendment or policy overlay changed the allowed state?",
+    "Which evidence record explains the current lifecycle status?"
+  ]
+}

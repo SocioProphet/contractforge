@@ -25,6 +25,25 @@ ContractForge is **not**:
 - the cross-platform standards authority for storage/contracts/measurement (`SocioProphet/socioprophet-standards-storage`)
 - the ontology supply-chain home (`SocioProphet/ontogenesis`)
 
+## Obligation Ledger
+
+ContractForge now carries the first validated Obligation Ledger surface for Professional Intelligence OS:
+
+- `schemas/obligation.schema.json`
+- `examples/obligations/ai-use-restriction.example.json`
+- `examples/obligations/approval-requirement.example.json`
+- `examples/obligations/retention.example.json`
+- `scripts/validate_obligations.py`
+
+Validate locally:
+
+```bash
+python -m pip install jsonschema
+python scripts/validate_obligations.py
+```
+
+The workflow `.github/workflows/obligations.yml` runs this validation when the obligation schema, examples, validator, or workflow changes.
+
 ## Initial repository structure
 
 - `docs/ARCHITECTURE.md` — platform architecture and role in the wider stack

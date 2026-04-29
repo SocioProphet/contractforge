@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "v0.1",
+  "obligationId": "obl-ai-use-demo-0001",
+  "obligationType": "ai_use_restriction",
+  "source": {
+    "kind": "guideline",
+    "ref": "guideline://demo/client-ai-use",
+    "section": "AI Use",
+    "hash": "sha256:demo-ai-use"
+  },
+  "subjectRef": "entity://organization/org-demo-0001",
+  "beneficiaryRef": "entity://organization/org-demo-0001",
+  "action": {
+    "verb": "summarize",
+    "resourceClass": "confidential-document",
+    "description": "Generated summaries require approval and evidence before release."
+  },
+  "effect": "require_approval",
+  "effectiveTime": {
+    "startsAt": "2026-04-29T15:55:00Z"
+  },
+  "policyMapping": {
+    "policyFamily": "ai-use-restriction",
+    "policyId": "policy-demo-ai-use",
+    "policyVersion": "v0.1"
+  },
+  "evidenceRefs": [
+    "evidence://obligation/obl-ai-use-demo-0001"
+  ]
+}

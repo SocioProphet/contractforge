@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "v0.1",
+  "obligationId": "obl-approval-demo-0001",
+  "obligationType": "approval_requirement",
+  "source": {
+    "kind": "contract",
+    "ref": "contract://demo/master-services-agreement",
+    "section": "Approvals",
+    "hash": "sha256:demo-approval"
+  },
+  "subjectRef": "workspace://workroom-demo-0001",
+  "beneficiaryRef": "entity://organization/org-demo-0001",
+  "action": {
+    "verb": "release-output",
+    "resourceClass": "review-packet",
+    "description": "Review packet release requires approval before external use."
+  },
+  "effect": "require_approval",
+  "effectiveTime": {
+    "startsAt": "2026-04-29T15:55:00Z"
+  },
+  "policyMapping": {
+    "policyFamily": "contract-obligation-enforcement",
+    "policyId": "policy-demo-approval",
+    "policyVersion": "v0.1"
+  },
+  "evidenceRefs": [
+    "evidence://obligation/obl-approval-demo-0001"
+  ]
+}

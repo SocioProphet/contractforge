@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "v0.1",
+  "obligationId": "obl-retention-demo-0001",
+  "obligationType": "retention",
+  "source": {
+    "kind": "policy",
+    "ref": "policy://demo/retention",
+    "section": "Retention",
+    "hash": "sha256:demo-retention"
+  },
+  "subjectRef": "workspace://workroom-demo-0001",
+  "beneficiaryRef": "entity://organization/org-demo-0001",
+  "action": {
+    "verb": "retain",
+    "resourceClass": "evidence-record",
+    "description": "Evidence records must be retained for audit and replay."
+  },
+  "effect": "record",
+  "effectiveTime": {
+    "startsAt": "2026-04-29T15:55:00Z"
+  },
+  "policyMapping": {
+    "policyFamily": "evidence-retention",
+    "policyId": "policy-demo-retention",
+    "policyVersion": "v0.1"
+  },
+  "evidenceRefs": [
+    "evidence://obligation/obl-retention-demo-0001"
+  ]
+}
